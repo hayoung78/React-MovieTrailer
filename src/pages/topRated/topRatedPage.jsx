@@ -35,7 +35,7 @@ const TopRatedPage = () => {
                 {data?.pages.map((group, index) => (
                     <React.Fragment key={index}>
                         {group.results.map(rated => (
-                            <Styled.Container
+                            <Styled.cContainer
                                 key={rated.id}
                                 onClick={() => handleDetailPage(rated.id)}
                             >
@@ -50,7 +50,7 @@ const TopRatedPage = () => {
                                 <Styled.P>
                                     {rated.overview.substring(0, 30)}...
                                 </Styled.P>
-                            </Styled.Container>
+                            </Styled.cContainer>
                         ))}
                     </React.Fragment>
                 ))}
