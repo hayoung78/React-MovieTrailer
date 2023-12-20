@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
-import { popularApi } from 'apis/popularApi';
-import { useState } from 'react';
+import { popularApi } from 'apis/apiConfig';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -16,20 +16,35 @@ const MainPage = () => {
     if (isError) return <div>Error: {error.message}</div>;
     console.log(data);
 
-    const handleDeftailPage = movie_id => {
+    const handleDetailPage = movie_id => {
         const query = `?movie_id=${movie_id}`;
         navigate(`/movie/${movie_id}${query}`);
+    };
+    const handleNowPlayingPage = () => {
+        const query = `now_playing`;
+        navigate(`/movie/${query}`);
+    };
+
+    const handleTopRatedPage = () => {
+        navigate(`/movie/top_rated`);
+    };
+
+    const handleUpcomingPage = () => {
+        navigate(`/movie/upcoming`);
     };
 
     return (
         <>
+            <button onClick={handleNowPlayingPage}>현재상영작GO</button>
+            <button onClick={handleTopRatedPage}>Top Ranking</button>
+            <button onClick={handleUpcomingPage}>Upcoming</button>
             <Styled.Wrapper>
-                {data.data.results.map(movie => (
+                {data.results.map(movie => (
                     <Styled.Container
                         key={movie.id}
-                        onClick={() => handleDeftailPage(movie.id)}
+                        onClick={() => handleDetailPage(movie.id)}
                     >
-                        <Styled.H3>{movie.title}</Styled.H3>
+                        <Styled.H3>{movie.title.substring(0, 10)}...</Styled.H3>
                         <Styled.Img
                             src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                         />
