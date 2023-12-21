@@ -43,6 +43,9 @@ export const nowPlayingApi = async page => {
 };
 
 export const topRatedApi = async page => {
-    const response = await createTMDBRequest(`movie/top_rated`, { page });
+    const query = `?page=${page}`;
+    const response = await createTMDBRequest(`movie/top_rated`, {
+        page,
+    });
     return response.data;
 };
