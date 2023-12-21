@@ -1,6 +1,7 @@
 import { useInfiniteQuery } from '@tanstack/react-query';
 import { topRatedApi } from 'apis/apiConfig';
-import React from 'react';
+import { useIntersectionObserver } from 'custom/useIntersectionObserver';
+import React, { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -13,16 +14,23 @@ const TopRatedPage = () => {
         error,
         fetchNextPage,
         hasNextPage,
+        isFetching,
         isFetchingNextPage,
     } = useInfiniteQuery({
         queryKey: ['topRatedData'],
-        queryFn: ({ pageParam = 2 }) => topRatedApi(pageParam),
-        getNextPageParam: lastPage => {
-            return lastPage.nextCursor;
-        },
+        queryFn: ({ pageParam = 1 }) => topRatedApi(pageParam),
+        getNextPageParam: (lastPage, pages) => lastPage.page + 1,
     });
 
     if (isError) return <div>ERRROR: {error.message}</div>;
+
+    const lastMovieRef = useRef(null);
+
+    useIntersectionObserver({
+        target: lastMovieRef,
+        onIntersect: fetchNextPage,
+        enabled: hasNextPage,
+    });
 
     const handleDetailPage = movie_id => {
         const query = `?movie_id=${movie_id}`;
@@ -34,9 +42,14 @@ const TopRatedPage = () => {
             <Styled.Wrapper>
                 {data?.pages.map((group, index) => (
                     <React.Fragment key={index}>
-                        {group.results.map(rated => (
+                        {group.results.map((rated, idx) => (
                             <Styled.Container
                                 key={rated.id}
+                                ref={
+                                    idx === group.results.length - 1
+                                        ? lastMovieRef
+                                        : null
+                                }
                                 onClick={() => handleDetailPage(rated.id)}
                             >
                                 <h3>{rated.title}</h3>
@@ -44,7 +57,7 @@ const TopRatedPage = () => {
                                     src={`https://image.tmdb.org/t/p/w500${rated.poster_path}`}
                                 />
                                 <Styled.P>
-                                    평점 :
+                                    ⭐평점 :
                                     {parseFloat(rated.vote_average).toFixed(1)}
                                 </Styled.P>
                                 <Styled.P>
@@ -55,13 +68,21 @@ const TopRatedPage = () => {
                     </React.Fragment>
                 ))}
             </Styled.Wrapper>
-            {isFetchingNextPage ? (
-                <p>Loading...</p>
-            ) : (
-                hasNextPage && (
-                    <button onClick={() => fetchNextPage()}>more</button>
-                )
-            )}
+            <div>
+                <button
+                    onClick={() => fetchNextPage()}
+                    disabled={!hasNextPage || isFetchingNextPage}
+                >
+                    {isFetchingNextPage
+                        ? 'Loding more...'
+                        : hasNextPage
+                          ? 'Load More'
+                          : 'Nothing more to load'}
+                </button>
+            </div>
+            <div>
+                {isFetching && !isFetchingNextPage ? 'Fetching...' : null}
+            </div>
         </>
     );
 };
