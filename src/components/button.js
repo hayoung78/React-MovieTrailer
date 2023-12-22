@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
-// const ButtonWrapper = styled.div``;
+const ButtonComponent = ({ onClick, children }) => {
+    return <Button onClick={onClick}>{children}</Button>;
+};
+export default ButtonComponent;
+
 const Button = styled.button`
     font-size: 13pt;
     background-color: #330066;
@@ -8,10 +12,11 @@ const Button = styled.button`
     width: 150px;
     height: 50px;
     margin: 5px;
-    border-radius: 45%;
+    border: none;
+    box-shadow: 1px 1px 1px 1px #000;
+    border-radius: 8px;
+    &:hover {
+        cursor: pointer;
+        background-color: #000;
+    }
 `;
-
-const ButtonComponent = ({ onClick, children }) => {
-    return <Button onClick={onClick}>{children}</Button>;
-};
-export default ButtonComponent;
