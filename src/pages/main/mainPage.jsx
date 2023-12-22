@@ -1,5 +1,6 @@
 import { useInfiniteQuery } from '@tanstack/react-query';
 import { popularApi } from 'apis/apiConfig';
+import ButtonComponent from 'components/button';
 import { useIntersectionObserver } from 'custom/useIntersectionObserver';
 import React, { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -66,15 +67,15 @@ const MainPage = () => {
     return (
         <>
             <Styled.ButtonWrapper>
-                <Styled.Button onClick={handleNowPlayingPage}>
-                    현재상영작GO
-                </Styled.Button>
-                <Styled.Button onClick={handleTopRatedPage}>
+                <ButtonComponent onClick={handleNowPlayingPage}>
+                    Now Playing
+                </ButtonComponent>
+                <ButtonComponent onClick={handleTopRatedPage}>
                     Top Ranking
-                </Styled.Button>
-                <Styled.Button onClick={handleUpcomingPage}>
-                    UpComing
-                </Styled.Button>
+                </ButtonComponent>
+                <ButtonComponent onClick={handleUpcomingPage}>
+                    Up Coming
+                </ButtonComponent>
             </Styled.ButtonWrapper>
             <Styled.Wrapper>
                 {/* 전체 페이지들을 map돌려서 */}
@@ -163,7 +164,6 @@ const Container = styled.div`
 const H3 = styled.h3`
     font-size: 15px;
 `;
-const Button = styled.button``;
 const P = styled.p`
     font-size: 13px;
 `;
