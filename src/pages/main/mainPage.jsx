@@ -1,5 +1,6 @@
 import { useInfiniteQuery } from '@tanstack/react-query';
 import { popularApi } from 'apis/apiConfig';
+import ScrollUp from 'components/ScrollUp';
 import { useIntersectionObserver } from 'custom/useIntersectionObserver';
 import React, { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -125,6 +126,7 @@ const MainPage = () => {
                         </Styled.P>
                     </Styled.Container>
                 ))} */}
+                <ScrollUp />
             </Styled.Wrapper>
             <div>
                 <button
