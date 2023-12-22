@@ -9,6 +9,9 @@ import { useEffect, useRef } from 'react';
  * @param {*enabled} 훅의 활성화 여부, false일 경우 관찰이 시작되지 않음 / ture로 설정됨
  * @discription 웹 API를 사용하여 특정 DOM요소가 viewport 내로 들어오거나 나갈 때 특정 동작을 수행
  */
+
+// Intersection Observer = Target Element가 화면에 노출되었는 지 여부를 간단하게 구독할 수 있는 API
+
 export const useIntersectionObserver = ({
     target, // DOM을 가리킨다
     onIntersect, // target이 viewport에 보이면 호출될 콜백 함수

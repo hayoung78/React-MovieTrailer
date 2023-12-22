@@ -1,9 +1,12 @@
+import {
+    nowPlayingApi,
+    popularApi,
+    topRatedApi,
+    upcomingApi,
+} from 'apis/apiConfig';
 import RootLayout from 'layouts/layout';
 import MovieDetailPage from 'pages/detail/movieDetail';
 import MainPage from 'pages/main/mainPage';
-import NowPlayingPage from 'pages/nowPlaying/nowPlaying';
-import TopRatedPage from 'pages/topRated/topRatedPage';
-import UpcomingPage from 'pages/upcoming/upcoming';
 import { createBrowserRouter } from 'react-router-dom';
 
 const router = createBrowserRouter([
@@ -13,7 +16,9 @@ const router = createBrowserRouter([
         children: [
             {
                 path: '',
-                element: <MainPage />,
+                element: (
+                    <MainPage queryKey={['popularData']} dataApi={popularApi} />
+                ),
             },
             {
                 path: '/movie/:movie_id',
@@ -21,15 +26,27 @@ const router = createBrowserRouter([
             },
             {
                 path: '/movie/upcoming',
-                element: <UpcomingPage />,
+                element: (
+                    <MainPage
+                        queryKey={['upcomingData']}
+                        dataApi={upcomingApi}
+                    />
+                ),
             },
             {
                 path: '/movie/now_playing',
-                element: <NowPlayingPage />,
+                element: (
+                    <MainPage
+                        queryKey={['nowPlaying']}
+                        dataApi={nowPlayingApi}
+                    />
+                ),
             },
             {
                 path: '/movie/top_rated',
-                element: <TopRatedPage />,
+                element: (
+                    <MainPage queryKey={['topRated']} dataApi={topRatedApi} />
+                ),
             },
         ],
     },
