@@ -22,6 +22,11 @@ export const movieDetailApi = async movieNumber => {
     return response.data;
 };
 
+export const movieListApi = async (name, page) => {
+    const response = await createTMDBRequest(name, { page });
+    return response.data;
+};
+
 export const popularApi = async page => {
     const response = await createTMDBRequest('movie/popular', { page });
     return response.data;
@@ -47,5 +52,11 @@ export const topRatedApi = async page => {
     const response = await createTMDBRequest(`movie/top_rated`, {
         page,
     });
+    return response.data;
+};
+
+export const searchApi = async title => {
+    const query = `?title=${title}`;
+    const response = await createTMDBRequest(`movie/${title}?title='${query}`);
     return response.data;
 };

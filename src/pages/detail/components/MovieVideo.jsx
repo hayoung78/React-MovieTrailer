@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { movieVideoApi } from 'apis/apiConfig';
 import { useSearchParams } from 'react-router-dom';
+import styled from 'styled-components';
 
 const MovieVideo = () => {
     const [params] = useSearchParams();
@@ -17,12 +18,12 @@ const MovieVideo = () => {
 
     return (
         <>
-            <div>
+            <Styled.Wrapper>
                 {data?.results.map(video => (
                     <iframe
                         key={video.id}
                         width="100%"
-                        height="315"
+                        height="600px"
                         src={`https://www.youtube.com/embed/${video.key}`}
                         title={video.name}
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -31,8 +32,17 @@ const MovieVideo = () => {
                         {video.site}
                     </iframe>
                 ))}
-            </div>
+            </Styled.Wrapper>
         </>
     );
 };
 export default MovieVideo;
+
+const Wrapper = styled.div`
+    width: 100%;
+    position: absolute;
+`;
+
+const Styled = {
+    Wrapper,
+};
