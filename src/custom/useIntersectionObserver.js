@@ -16,7 +16,7 @@ export const useIntersectionObserver = ({
     target, // DOM을 가리킨다
     onIntersect, // target이 viewport에 보이면 호출될 콜백 함수
     threshold = 0.8, // 해당 요소가 80%가 보여질 때 실행
-    rootMargin = '0px', // target의 마진 값
+    rootMargin = '80px', // target의 마진 값
     enabled = true, // 훅의 활성화 여부, false일 경우 관찰이 시작되지 않음
 }) => {
     const observer = useRef();

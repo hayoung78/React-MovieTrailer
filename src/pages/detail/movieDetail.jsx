@@ -24,9 +24,9 @@ const MovieDetailPage = () => {
         <>
             <Styled.Wrapper>
                 <h2>{data.title}</h2>
-                <img
+                {/* <Img
                     src={`https://image.tmdb.org/t/p/w500${data.backdrop_path}`}
-                />
+                /> */}
                 <p>{data.overview}</p>
                 <p>{data.tagline}</p>
                 <MovieVideo />
@@ -36,8 +36,18 @@ const MovieDetailPage = () => {
 };
 export default MovieDetailPage;
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+    position: absolute;
+    
+    margin-top: 100px;
+`;
+
+const Img = styled.img`
+    width: 100vw;
+    height: 100vh;
+`;
 
 const Styled = {
     Wrapper,
+    Img,
 };
