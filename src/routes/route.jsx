@@ -1,12 +1,14 @@
 import {
     nowPlayingApi,
     popularApi,
+    searchApi,
     topRatedApi,
     upcomingApi,
 } from 'apis/apiConfig';
 import RootLayout from 'layouts/layout';
 import MovieDetailPage from 'pages/detail/movieDetail';
 import MainPage from 'pages/main/mainPage';
+import SearchPage from 'pages/search/searchPage';
 import { createBrowserRouter } from 'react-router-dom';
 
 const router = createBrowserRouter([
@@ -46,6 +48,15 @@ const router = createBrowserRouter([
                 path: '/movie/top_rated',
                 element: (
                     <MainPage queryKey={['topRated']} dataApi={topRatedApi} />
+                ),
+            },
+            {
+                path: `/search/movie`,
+                element: (
+                    <SearchPage
+                        queryKey={['searchData']}
+                        dataApi={searchApi('친구')}
+                    />
                 ),
             },
         ],

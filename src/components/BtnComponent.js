@@ -21,13 +21,25 @@ const BtnComponent = () => {
 
     return (
         <Styled.ButtonWrapper>
-            <ButtonComponent onClick={handleNowPlayingPage}>
+            <ButtonComponent
+                onClick={handleNowPlayingPage}
+                backgroundColor={'#330066'}
+                color={'#fff'}
+            >
                 Now Playing
             </ButtonComponent>
-            <ButtonComponent onClick={handleTopRatedPage}>
+            <ButtonComponent
+                onClick={handleTopRatedPage}
+                backgroundColor={'#330066'}
+                color={'#fff'}
+            >
                 Top Ranking
             </ButtonComponent>
-            <ButtonComponent onClick={handleUpcomingPage}>
+            <ButtonComponent
+                onClick={handleUpcomingPage}
+                backgroundColor={'#330066'}
+                color={'#fff'}
+            >
                 Up Coming
             </ButtonComponent>
         </Styled.ButtonWrapper>
@@ -39,6 +51,9 @@ const ButtonWrapper = styled.div`
     position: fixed;
     top: 15px;
     z-index: 100;
+    @media (max-width: 1500px) {
+        width: 400px;
+    }
 `;
 
 const Styled = {
