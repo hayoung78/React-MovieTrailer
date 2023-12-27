@@ -5,7 +5,7 @@ import { useIntersectionObserver } from 'custom/useIntersectionObserver';
 import React, { useRef } from 'react';
 import styled from 'styled-components';
 
-// MainPage 하나로 다른 페이지를 다 불러옴
+// MainPage 하나로 다른 페이지를 다 불러옴.
 const MainPage = ({ queryKey = [], dataApi }) => {
     const {
         data,
