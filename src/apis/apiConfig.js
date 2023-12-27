@@ -55,8 +55,10 @@ export const topRatedApi = async page => {
     return response.data;
 };
 
-export const searchApi = async title => {
-    const query = `?title=${title}`;
-    const response = await createTMDBRequest(`movie/${title}?title='${query}`);
+export const searchApi = async input => {
+    const query = `?query=${input}`;
+    //const query = `?query=%EC%B9%9C%EA%B5%AC&include_adult=false&language=ko-KR&page=1`;
+    const response = await createTMDBRequest(`search/movie${query}`);
+    //const response = await createTMDBRequest(`movie/${title}?title='${query}`);
     return response.data;
 };

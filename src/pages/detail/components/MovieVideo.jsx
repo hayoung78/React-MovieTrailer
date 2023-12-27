@@ -22,8 +22,8 @@ const MovieVideo = () => {
                 {data?.results.map(video => (
                     <iframe
                         key={video.id}
-                        width="100%"
-                        height="600px"
+                        width="400px"
+                        height="250px"
                         src={`https://www.youtube.com/embed/${video.key}`}
                         title={video.name}
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -40,7 +40,6 @@ export default MovieVideo;
 
 const Wrapper = styled.div`
     width: 100%;
-    position: absolute;
 `;
 
 const Styled = {

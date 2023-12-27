@@ -1,4 +1,5 @@
 import LogoImg from 'assets/imgs/show.png';
+import SearchBar from 'components/searchBar';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -16,9 +17,9 @@ const Header = () => {
                     <Styled.Img src={LogoImg} />
                 </Styled.ImgWrapper>
                 <Styled.H1 onClick={() => handleMainPage()}>
-                    {' '}
-                    OMEGA3BOX{' '}
+                    OMEGA3BOX
                 </Styled.H1>
+                <SearchBar />
             </Styled.TitleWrapper>
         </>
     );
@@ -26,7 +27,7 @@ const Header = () => {
 export default Header;
 const TitleWrapper = styled.div`
     background-color: #330066;
-    width: 100%;
+    width: 100vw;
     height: 90px;
     display: flex;
     justify-content: center;
@@ -35,9 +36,15 @@ const TitleWrapper = styled.div`
     z-index: 10;
 `;
 const ImgWrapper = styled.div`
-    position: absolute;
+    /* position: absolute;
     top: 2.5%;
-    left: 35%;
+    left: 33%; */
+    @media (max-width: 1500px) {
+        margin-left: 10%;
+    }
+    @media (max-width: 1000px) {
+        margin-left: 40%;
+    }
 `;
 const Img = styled.img`
     width: 100px;

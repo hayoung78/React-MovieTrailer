@@ -89,11 +89,11 @@ const ButtonWrapper = styled.div`
 `;
 
 const Wrapper = styled.div`
-    width: calc(100vw - 50px);
+    width: 100vw;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     margin-top: 150px;
-    padding-left: 50px;
+    // padding-left: 50px;
     @media (max-width: 1080px) {
         grid-template-columns: 1fr 1fr 1fr;
         margin-top: 100px;
