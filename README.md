@@ -13,9 +13,9 @@
 <table>
   <tbody>
     <tr>
-      <td align="center"><a href=""><img src="" width="100px;" alt=""/><br /><sub><b>FE 팀원 : 김진솔 </b></sub></a><br /></td>
-      <td align="center"><a href=""><img src="https://github.com/secondflow02/FRONTEND6-2-2/assets/142880051/008794f2-ba60-47e5-8694-9f219399b398" width="100px;" alt=""/><br /><sub><b>FE 팀원 : 최하영 </b></sub></a><br /></td>
-      <td align="center"><a href=""><img src="" width="100px;" alt=""/><br /><sub><b>FE 팀원 : 허진욱 </b></sub></a><br /></td>
+      <td align="center"><a href=""><img src="" width="100px;" alt=""/><br /><sub><b> 팀원 : 김진솔 </b></sub></a><br /></td>
+      <td align="center"><a href=""><img src="https://github.com/secondflow02/FRONTEND6-2-2/assets/142880051/008794f2-ba60-47e5-8694-9f219399b398" width="100px;" alt=""/><br /><sub><b> 팀원 : 최하영 </b></sub></a><br /></td>
+      <td align="center"><a href=""><img src="" width="100px;" alt=""/><br /><sub><b> 팀원 : 허진욱 </b></sub></a><br /></td>
      <tr/>
 
 #### 사용 기술 스택 : 
