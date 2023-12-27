@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 # :movie_camera: TOY-PROJECT :  OMEGA3BOX
 ### 영화 트레일러 오픈 API를 활용하여 영화 목록을 조회하고 사이트 구현하기
@@ -106,3 +107,6 @@ search
 
 깃허브 커밋 컨벤션 https://www.notion.so/Git-Commit-Convention-5aa75099024e4ec0b4c95057a5fbbcf7
 
+=======
+# React-MovieTrailer
+>>>>>>> a4c142031b2294938079b782de2521b86fcf9fd1
