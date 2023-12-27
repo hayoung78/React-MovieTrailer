@@ -34,6 +34,7 @@ const MovieDetailPage = () => {
                     </Styled.ImgBox>
                     <Styled.TextBox>
                         <h1>{data.title}</h1>
+                        <p>{data.original_title}</p>
                         <h3>{data.tagline}</h3>
                         <p>개봉일 : {data.release_date}</p>
                         <p>
@@ -42,6 +43,8 @@ const MovieDetailPage = () => {
                                 <span> {item.name}</span>
                             ))}
                         </p>
+                        {/* <p>개봉일 : {data.release_date}</p> */}
+                        <p>평점 : {parseFloat(data.vote_average).toFixed(1)}</p>
                     </Styled.TextBox>
                 </Styled.Container>
                 <Styled.TextContent>

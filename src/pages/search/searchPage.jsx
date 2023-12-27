@@ -21,7 +21,10 @@ const SearchPage = ({ queryKey = [], dataApi }) => {
         hasNextPage,
         isFetching,
         isFetchingNextPage,
-    } = useCustomQuery({ queryKey: [queryKey, query], dataApi: dataApi });
+    } = useCustomQuery({
+        queryKey: [queryKey, query],
+        dataApi: () => dataApi(query),
+    });
 
     if (isError) return <div>Error: {error.message}</div>;
 
