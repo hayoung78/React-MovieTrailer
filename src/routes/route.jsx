@@ -55,7 +55,7 @@ const router = createBrowserRouter([
                 element: (
                     <SearchPage
                         queryKey={['searchData']}
-                        dataApi={searchApi('친구')}
+                        dataApi={input => searchApi(input)}
                     />
                 ),
             },
